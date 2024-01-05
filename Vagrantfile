@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     master.vm.hostname = "k8s-master"
     config.vm.network "public_network", bridge: "Your_Physical_Network_Interface_Name"
     # Provisioning script for Kubernetes installation on master
-    master.vm.provision "shell", path: "provision-master.sh"
+    master.vm.provision "shell", path: "https://raw.githubusercontent.com/githubdrk/vagrant/main/provision-master.sh"
   end
 
   # Define a worker node with 2 CPUs
@@ -23,6 +23,6 @@ Vagrant.configure("2") do |config|
     worker.vm.hostname = "k8s-worker"
     # Provisioning script for Kubernetes worker node setup
     config.vm.network "public_network", bridge: "Your_Physical_Network_Interface_Name"
-    worker.vm.provision "shell", path: "provision-worker.sh"
+    worker.vm.provision "shell", path: "https://raw.githubusercontent.com/githubdrk/vagrant/main/provision-worker.sh"
   end
 end
